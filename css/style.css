@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.game-board {
+    width: 100%;
+    height: 500px;
+    border-bottom: 10px solid rgb(35, 160, 35);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;          /* Quando sair do espaço delimitado da DIV, a img some */
+    background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    animation: pipe-animation 2s infinite linear; /* Os segundos determinam a dificuldade do jogo */
+
+    /* Utilizando animação criada, infinito o tempo dela e linear para ser feita de maneira constante sem a imagem aparecer do "nada" */
+       
+
+}
+
+.mario {
+    width: 170px;
+    position: absolute;
+    bottom: 0;
+}
+
+.jump {
+    animation: jump-mario 500ms ease-out;  /* Adiciona essa class a img do Mario para que ele pule */
+}
+
+.clouds{ 
+    position: absolute;
+    width: 600px;
+    animation: clouds-animation 10s infinite linear;
+}
+
+/* Criando a animação do PIPE através do keyframe. Inicia (from) e vai até (to) */
+@keyframes pipe-animation {
+    from {
+        right: -80px; /* O tamanho do width negativo para que o PIPE surja antes da DIV e não apareça do nada */
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes jump-mario {
+
+/* Podemos usar porcentagem para determinar COMEÇO / MEIO / FIM da animação */
+
+    0% { 
+        bottom: 0;
+    }                          
+
+    40% {
+        bottom: 200px;
+    }
+
+    50% {
+        bottom: 200px;
+    }
+
+    60% {
+        bottom: 200px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes clouds-animation {
+    from {
+        right: -600px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
